@@ -25,6 +25,7 @@ function App() {
 
   const handleNavigateDetailPage = (e) => {
     console.log(e);
+    window.open(`http://hn.algolia.com/api/v1/items/${e}`);
   };
 
   return (
@@ -40,7 +41,7 @@ function App() {
       <div className="app__searchResults">
         {searchResults?.map((result) => (
           <div className="individual_result">
-            <p onClick={handleNavigateDetailPage}>
+            <p onClick={() => handleNavigateDetailPage(result.objectID)}>
               {result.title || result.story_text}
             </p>
           </div>
@@ -49,5 +50,4 @@ function App() {
     </div>
   );
 }
-// http://hn.algolia.com/api/v1/search?query=...
 export default App;
