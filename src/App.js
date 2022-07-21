@@ -4,13 +4,15 @@ import { Link } from "react-router-dom";
 
 function App() {
   const [searchResults, setSearchResults] = useState([]);
+
+  // Make api calls matching the search query
   const handleSearchQuery = (e) => {
     fetch(`http://hn.algolia.com/api/v1/search?query=${e.target.value}`)
       .then((response) => response.json())
       .then((data) => setSearchResults(data.hits));
-    console.log(searchResults);
   };
 
+  // debouncing enabled for optimisation of number of api calls
   const someFn = function (fn, delay) {
     let timer;
     return function () {
@@ -36,11 +38,11 @@ function App() {
       </div>
       <div className="app__searchResults">
         {searchResults?.map((result) => (
-          <div className="individual_result">
-            <Link to={result.objectID}>
+          <Link className="link" to={result.objectID}>
+            <div className="individual_result">
               {result.title || result.story_text}
-            </Link>
-          </div>
+            </div>
+          </Link>
         ))}
       </div>
     </div>
