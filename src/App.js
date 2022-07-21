@@ -1,5 +1,6 @@
 import "./App.css";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 function App() {
   const [searchResults, setSearchResults] = useState([]);
@@ -23,11 +24,6 @@ function App() {
   };
   const optimisedSearchFunction = someFn(handleSearchQuery, 300);
 
-  const handleNavigateDetailPage = (e) => {
-    console.log(e);
-    window.open(`http://hn.algolia.com/api/v1/items/${e}`);
-  };
-
   return (
     <div className="app">
       <div className="app__search">
@@ -41,9 +37,9 @@ function App() {
       <div className="app__searchResults">
         {searchResults?.map((result) => (
           <div className="individual_result">
-            <p onClick={() => handleNavigateDetailPage(result.objectID)}>
+            <Link to={result.objectID}>
               {result.title || result.story_text}
-            </p>
+            </Link>
           </div>
         ))}
       </div>
