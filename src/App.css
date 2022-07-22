@@ -56,3 +56,56 @@ a {
 .link {
     width: 100%;
 }
+
+.news__heading {
+    width: 100%;
+    padding: 1rem;
+}
+
+.news__heading > h1 {
+    font-size: 3rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+.news__heading > p {
+    font-size: 1rem;
+    font-family: 'Ubuntu', sans-serif;
+    margin-top: 1rem;
+}
+
+.news__comments {
+    width: 100;
+    padding: 1rem;
+}
+
+.news__comments > h3 {
+    font-size: 1.2rem;
+    font-family: 'Ubuntu', sans-serif;
+    margin-top: 1rem;
+    font-weight: 600;
+    text-decoration: underline;
+    margin-bottom: 1rem;
+}
+
+.news__commentsStyle {
+    display: flex;
+    align-items: flex-start;
+    justify-content: start;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.news__commentsStyle > p {
+    font-size: 0.9rem;
+    font-family: 'Poppins', sans-serif;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(248, 248, 248);
+    border: 1px solid rgb(238, 238, 238);
+    border-radius: 6px;
+}
+
+.news__comments > p > a {
+    color: blue;
+}

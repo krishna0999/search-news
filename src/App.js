@@ -1,9 +1,14 @@
 import "./App.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 function App() {
   const [searchResults, setSearchResults] = useState([]);
+  useEffect(() => {
+    fetch(`http://hn.algolia.com/api/v1/search?query=`)
+      .then((response) => response.json())
+      .then((data) => setSearchResults(data.hits));
+  }, []);
 
   // Make api calls matching the search query
   const handleSearchQuery = (e) => {
@@ -20,7 +25,7 @@ function App() {
         args = arguments;
       clearTimeout(timer);
       timer = setTimeout(() => {
-        handleSearchQuery.apply(context, args);
+        fn.apply(context, args);
       }, delay);
     };
   };
