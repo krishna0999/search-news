@@ -5,14 +5,14 @@ import { Link } from "react-router-dom";
 function App() {
   const [searchResults, setSearchResults] = useState([]);
   useEffect(() => {
-    fetch(`http://hn.algolia.com/api/v1/search?query=`)
+    fetch(`https://hn.algolia.com/api/v1/search?query=`)
       .then((response) => response.json())
       .then((data) => setSearchResults(data.hits));
   }, []);
 
   // Make api calls matching the search query
   const handleSearchQuery = (e) => {
-    fetch(`http://hn.algolia.com/api/v1/search?query=${e.target.value}`)
+    fetch(`https://hn.algolia.com/api/v1/search?query=${e.target.value}`)
       .then((response) => response.json())
       .then((data) => setSearchResults(data.hits));
   };
